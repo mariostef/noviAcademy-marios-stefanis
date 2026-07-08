@@ -1,6 +1,9 @@
 using WorldRank;
+using WorldRank.Interfaces;
+using WorldRank.Repositories;
 
 var players = new List<Player>();
+IPlayerRepository playerRepository = new InMemoryPlayerRepository();
 
 while (true)
 {
@@ -47,8 +50,8 @@ void AddPlayer()
 	var player = new Player(name);
 	player.UpdateScore(score);
 
-	players.Add(player);
-	Console.WriteLine("Player added successfully.");
+    playerRepository.AddPlayer(player);
+    Console.WriteLine("Player added successfully.");
 }
 
 void ListPlayers()
@@ -65,13 +68,19 @@ void ListPlayers()
 
 void FindPlayer()
 {
-	Console.Write("Search by name: ");
-	var term = Console.ReadLine() ?? string.Empty;
+	Console.Write("Player id: ");
+	var input = Console.ReadLine();
 
-	var player = players
-			.FirstOrDefault(p => p.Name.Equals(term, StringComparison.OrdinalIgnoreCase));
+	if (!(int.TryParse(input, out var playerId))
+	{
+        Console.WriteLine("Invalid player id.");
+    }
+	else
+	{
+		var player = playerRepository.FindPlayer(playerId);
+	}
 
-	if (player is null)
+    if (player is null)
 	{
 		Console.WriteLine("No player found.");
 		return;
