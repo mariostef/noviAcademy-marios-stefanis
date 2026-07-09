@@ -1,5 +1,5 @@
 using WorldRank.Domain.Exceptions;
-using WorldRank.Domain.Enums;	
+using WorldRank.Domain.Enums;
 namespace WorldRank.Domain.Wallets;
 
 	public class Wallet : IWallet
@@ -57,7 +57,16 @@ namespace WorldRank.Domain.Wallets;
 
 			Balance = newBalance;
 		}
+		public void ForceWithdraw(decimal amount)
+		{
+        if (amount <= 0)
+            throw new InvalidAmountException(amount);
+        var newBalance = Balance - amount;
+        if (newBalance < 0)
+            throw new InsufficientFundsException(newBalance);
+        Balance = newBalance;
+		}
 
-		public override string ToString() => $"Balance -> {Balance} Currency -> {Currency} IsBlocked -> {IsBlocked}";
+    public override string ToString() => $"Balance -> {Balance} Currency -> {Currency} IsBlocked -> {IsBlocked}";
 	}
 
