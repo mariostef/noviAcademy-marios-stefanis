@@ -1,7 +1,7 @@
-using WorldRank.Console.Enums;
+using WorldRank.Domain.Enums;
 
-namespace WorldRank.Console.Exceptions
-{
+namespace WorldRank.Domain.Exceptions;
+
 	public class WalletBlockedException : WalletException
 	{
 		public Currency Currency { get; }
@@ -12,4 +12,4 @@ namespace WorldRank.Console.Exceptions
 			Currency = currency;
 		}
 	}
-}
+

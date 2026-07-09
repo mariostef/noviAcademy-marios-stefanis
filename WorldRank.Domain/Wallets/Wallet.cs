@@ -1,8 +1,7 @@
-using WorldRank.Console.Enums;
-using WorldRank.Console.Exceptions;
+using WorldRank.Domain.Exceptions;
+using WorldRank.Domain.Enums;	
+namespace WorldRank.Domain.Wallets;
 
-namespace WorldRank.Console
-{
 	public class Wallet : IWallet
 	{
 		public Currency Currency { get; }
@@ -61,4 +60,4 @@ namespace WorldRank.Console
 
 		public override string ToString() => $"Balance -> {Balance} Currency -> {Currency} IsBlocked -> {IsBlocked}";
 	}
-}
+
