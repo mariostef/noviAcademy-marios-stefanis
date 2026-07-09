@@ -1,5 +1,5 @@
-namespace WorldRank.Console
-{
+namespace WorldRank.Domain.Player;
+
 	public interface IPlayer
 	{
 		int Id { get; }
@@ -8,4 +8,3 @@ namespace WorldRank.Console
 
 		void AddScore(int points);
 	}
-}

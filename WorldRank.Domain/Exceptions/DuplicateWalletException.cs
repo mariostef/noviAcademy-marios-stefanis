@@ -1,7 +1,6 @@
-using WorldRank.Console.Enums;
+using WorldRank.Domain.Enums;
+namespace WorldRank.Domain.Exceptions;
 
-namespace WorldRank.Console.Exceptions
-{
 	public class DuplicateWalletException : WalletException
 	{
 		public int PlayerId { get; }
@@ -14,4 +13,4 @@ namespace WorldRank.Console.Exceptions
 			Currency = currency;
 		}
 	}
-}
+

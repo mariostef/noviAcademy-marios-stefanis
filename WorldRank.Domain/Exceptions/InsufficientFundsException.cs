@@ -1,5 +1,5 @@
-namespace WorldRank.Console.Exceptions
-{
+namespace WorldRank.Domain.Exceptions;
+
 	public class InsufficientFundsException : WalletException
 	{
 		public decimal AttemptedBalance { get; }
@@ -10,4 +10,4 @@ namespace WorldRank.Console.Exceptions
 			AttemptedBalance = attemptedBalance;
 		}
 	}
-}
+
