@@ -1,12 +1,11 @@
-﻿
-using WorldRank.Domain.Player;
-using WorldRank.Domain.Wallets;
-using WorldRank.Application.Strategies;
+using WorldRank.Domain.Entities;
 
-namespace WorldBank.Application.Strategies;
+namespace WorldRank.Application.Strategies;
 
-public class ForceSubtract : IFundsStrategy
+/// <summary>Subtracts funds even if the balance goes negative - chargebacks, penalties.</summary>
+public class ForceSubtractFundsStrategy : IFundsStrategy
 {
     public FundsOperation Operation => FundsOperation.ForceSubtract;
-    public void Execute(Wallet wallet, decimal amount) => wallet.ForceWithdraw(amount);
+
+    public void Execute(Wallet wallet, decimal amount) => wallet.ForceSubtractFunds(amount);
 }

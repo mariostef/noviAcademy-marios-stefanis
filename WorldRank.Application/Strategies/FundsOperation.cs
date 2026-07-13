@@ -1,6 +1,6 @@
-﻿namespace WorldRank.Application.Strategies;
+namespace WorldRank.Application.Strategies;
 
-    public enum FundsOperation
+public enum FundsOperation
 {
     Add,
     Subtract,
